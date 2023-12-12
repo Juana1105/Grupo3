@@ -4,19 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login"
+    tools:context=".SignIn"
     android:orientation="vertical">
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/encabezadoInicioSesión"
+        android:id="@+id/encabezadoRegistro"
         style="@style/Widget.Design.AppBarLayout"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:title="Inicio Sesión"
+        app:title="Registro"
         app:titleCentered="true"/>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputCorreoLogin"
+        android:id="@+id/textInputNombreRegistro"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="20dp"
+        android:hint="Nombre"
+        app:startIconDrawable="@drawable/person"
+        app:endIconMode="clear_text">
+
+        <EditText
+            android:id="@+id/editTextNombreRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputCorreoRegistro"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,14 +47,14 @@
         app:endIconMode="clear_text">
 
         <EditText
-            android:id="@+id/editTextCorreoLogin"
+            android:id="@+id/editTextCorreoRegistro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputContrasenaLogin"
+        android:id="@+id/textInputContrasenaRegistro"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,7 +66,27 @@
         app:endIconMode="password_toggle">
 
         <EditText
-            android:id="@+id/editTextContrasenaLogin"
+            android:id="@+id/editTextContrasenaRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputConfirmarContrasenaRegistro"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="20dp"
+        android:hint="Confirmar Contraseña"
+        app:startIconDrawable="@drawable/lock"
+        app:endIconMode="password_toggle">
+
+        <EditText
+            android:id="@+id/editTextConfirmarContrasenaRegistro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"/>

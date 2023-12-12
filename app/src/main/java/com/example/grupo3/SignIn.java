@@ -8,19 +8,21 @@ import android.widget.EditText;
 
 import com.google.android.material.appbar.MaterialToolbar;
 
-public class Login extends AppCompatActivity {
+public class SignIn extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_sign_in);
 
-        MaterialToolbar encabezado = findViewById(R.id.encabezadoInicioSesión);
+        MaterialToolbar encabezado = findViewById(R.id.encabezadoRegistro);
         setSupportActionBar(encabezado);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        EditText textoCorreo = findViewById(R.id.editTextCorreoLogin);
-        EditText textoContrasena = findViewById(R.id.editTextContrasenaLogin);
+        EditText textoNombre = findViewById(R.id.editTextNombreRegistro);
+        EditText textoCorreo = findViewById(R.id.editTextCorreoRegistro);
+        EditText textoContrasena = findViewById(R.id.editTextContrasenaRegistro);
+        EditText textoConfirmarContrasena = findViewById(R.id.editTextConfirmarContrasenaRegistro);
 
         encabezado.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
