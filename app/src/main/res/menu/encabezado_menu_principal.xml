@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/itemPerfil"
+        android:title="Perfil"
+        android:icon="@drawable/person"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/itemUnirteAClase"
+        android:title="Unirte a Clase"/>
+
+    <item
+        android:id="@+id/itemAceraDe"
+        android:title="Acerca De..."/>
+
+    <item
+        android:id="@+id/itemCerrarSesion"
+        android:title="Cerrar Sesion"/>
+</menu>
