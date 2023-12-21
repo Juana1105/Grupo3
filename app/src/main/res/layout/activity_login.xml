@@ -13,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:title="Inicio Sesión"
-        app:titleCentered="true"/>
+        app:titleCentered="true"
+        app:navigationIcon="@drawable/arrow_back"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputCorreoLogin"

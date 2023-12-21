@@ -16,13 +16,6 @@ public class SignIn extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
 
         MaterialToolbar encabezado = findViewById(R.id.encabezadoRegistro);
-        setSupportActionBar(encabezado);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        EditText textoNombre = findViewById(R.id.editTextNombreRegistro);
-        EditText textoCorreo = findViewById(R.id.editTextCorreoRegistro);
-        EditText textoContrasena = findViewById(R.id.editTextContrasenaRegistro);
-        EditText textoConfirmarContrasena = findViewById(R.id.editTextConfirmarContrasenaRegistro);
 
         encabezado.setNavigationOnClickListener(new View.OnClickListener() {
             @Override

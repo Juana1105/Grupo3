@@ -13,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:title="Registro"
-        app:titleCentered="true"/>
+        app:titleCentered="true"
+        app:navigationIcon="@drawable/arrow_back"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputNombreRegistro"
@@ -30,7 +31,7 @@
         <EditText
             android:id="@+id/editTextNombreRegistro"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -50,6 +51,38 @@
             android:id="@+id/editTextCorreoRegistro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/textInputTipoUsuario"
+    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="20dp">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Profesor"
+                android:textSize="16sp"
+                android:layout_marginRight="20dp"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Alumno"
+                android:textSize="16sp"/>
+
+        </RadioGroup>
 
     </com.google.android.material.textfield.TextInputLayout>
 
