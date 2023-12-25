@@ -1,8 +1,13 @@
 package Tablas;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
 import java.time.LocalDate;
 
-public class Tarea {
+public class Tarea implements Parcelable {
     private int id;
     private int asignatura;
     private String tituloTarea;
@@ -16,6 +21,25 @@ public class Tarea {
         this.descripcion = descripcion;
         this.fechaEntrega = fechaEntrega;
     }
+
+    protected Tarea(Parcel in) {
+        id = in.readInt();
+        asignatura = in.readInt();
+        tituloTarea = in.readString();
+        descripcion = in.readString();
+    }
+
+    public static final Creator<Tarea> CREATOR = new Creator<Tarea>() {
+        @Override
+        public Tarea createFromParcel(Parcel in) {
+            return new Tarea(in);
+        }
+
+        @Override
+        public Tarea[] newArray(int size) {
+            return new Tarea[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -55,5 +79,18 @@ public class Tarea {
 
     public void setFechaEntrega(LocalDate fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeInt(asignatura);
+        dest.writeString(tituloTarea);
+        dest.writeString(descripcion);
     }
 }

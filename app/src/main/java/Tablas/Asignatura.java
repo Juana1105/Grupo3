@@ -1,6 +1,11 @@
 package Tablas;
 
-public class Asignatura {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
+public class Asignatura implements Parcelable {
     private int id;
     private String asignatura;
     private int curso;
@@ -14,6 +19,26 @@ public class Asignatura {
         this.ciclo = ciclo;
         this.profesor = profesor;
     }
+
+    protected Asignatura(Parcel in) {
+        id = in.readInt();
+        asignatura = in.readString();
+        curso = in.readInt();
+        ciclo = in.readString();
+        profesor = in.readString();
+    }
+
+    public static final Creator<Asignatura> CREATOR = new Creator<Asignatura>() {
+        @Override
+        public Asignatura createFromParcel(Parcel in) {
+            return new Asignatura(in);
+        }
+
+        @Override
+        public Asignatura[] newArray(int size) {
+            return new Asignatura[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -53,5 +78,19 @@ public class Asignatura {
 
     public void setProfesor(String profesor) {
         this.profesor = profesor;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(asignatura);
+        dest.writeInt(curso);
+        dest.writeString(ciclo);
+        dest.writeString(profesor);
     }
 }

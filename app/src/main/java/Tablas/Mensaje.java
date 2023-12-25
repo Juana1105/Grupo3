@@ -1,8 +1,13 @@
 package Tablas;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
 import java.time.LocalDate;
 
-public class Mensaje {
+public class Mensaje implements Parcelable {
     private int id;
     private String emisor;
     private String receptor;
@@ -18,6 +23,26 @@ public class Mensaje {
         this.mensaje = mensaje;
         this.fechaRealizado = fechaRealizado;
     }
+
+    protected Mensaje(Parcel in) {
+        id = in.readInt();
+        emisor = in.readString();
+        receptor = in.readString();
+        tituloMensaje = in.readString();
+        mensaje = in.readString();
+    }
+
+    public static final Creator<Mensaje> CREATOR = new Creator<Mensaje>() {
+        @Override
+        public Mensaje createFromParcel(Parcel in) {
+            return new Mensaje(in);
+        }
+
+        @Override
+        public Mensaje[] newArray(int size) {
+            return new Mensaje[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -65,5 +90,19 @@ public class Mensaje {
 
     public void setFechaRealizado(LocalDate fechaRealizado) {
         this.fechaRealizado = fechaRealizado;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(emisor);
+        dest.writeString(receptor);
+        dest.writeString(tituloMensaje);
+        dest.writeString(mensaje);
     }
 }
