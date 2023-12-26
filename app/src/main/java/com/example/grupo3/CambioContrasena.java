@@ -58,6 +58,7 @@ public class CambioContrasena extends AppCompatActivity implements View.OnClickL
                 Toast.makeText(this, R.string.errorContrasenaYConfirmacionErroneas, Toast.LENGTH_SHORT).show();
             }
         } else {
+            actividadPerfil.putExtras(usuario);
             startActivity(actividadPerfil);
         }
     }
