@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/contenedorCard"
+        android:layout_width="320dp"
+        android:layout_height="350dp"
+        android:layout_gravity="center"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        android:focusable="true">
+        <!--  app:cardElevation="10dp"
+        app:cardCornerRadius="20dp" -->
+
+        <LinearLayout
+            android:id="@+id/contenedorCardLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F2F4FF "
+            android:orientation="horizontal"
+            >
+
+
+            <LinearLayout
+                android:id="@+id/contenedorImages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imagenModulo"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/account_circle"
+                    android:scaleType="fitCenter">
+                </ImageView>
+                <!--Añado el elemento Floating Action Button y configuro dandole atributos-->
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/floatingAB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    app:fabSize="mini"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginBottom="10dp"
+                    android:backgroundTint="#7F68E6"
+                    android:src="@drawable/delete" />
+
+            </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:id="@+id/contenedorDatos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            >
+            <TextView
+                android:id="@+id/nombreModulo"
+                android:text="Módulo"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textStyle="bold|italic">
+            </TextView>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@android:color/darker_gray"
+                android:layout_marginTop="35dp"
+                android:layout_marginBottom="25dp"/>
+
+            <LinearLayout
+                android:id="@+id/contenedorCursoCiclo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/ciclo"
+                    android:text="Ciclo"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:textSize="25sp"
+                    android:layout_height="wrap_content">
+                </TextView>
+
+                <View
+                    android:layout_width="20dp"
+                    android:layout_height="3dp"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    />
+
+                <TextView
+                    android:id="@+id/curso"
+                    android:text="Curso"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </TextView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
