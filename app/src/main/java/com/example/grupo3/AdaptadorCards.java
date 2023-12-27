@@ -37,8 +37,8 @@ public class AdaptadorCards extends ArrayAdapter<Modulo> {
         TextView cicloModulo= (TextView) elemento.findViewById(R.id.ciclo);
         TextView cursoModulo= (TextView) elemento.findViewById(R.id.curso);
 
-        //ya hemos asociados los elementos de textView a la interfaz pero nos tiene q mostrar la info
-        //ya tenemos la lista de los alumnos en el arrayList del principio
+        //asociamos elementos
+
 
         imagenModulo.setImageResource(lista.get(position).getFoto());
         nombreModulo.setText(lista.get(position).getNombre());
