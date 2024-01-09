@@ -5,21 +5,33 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Date;
 
 public class Tarea implements Parcelable {
     private int id;
     private int asignatura;
     private String tituloTarea;
     private String descripcion;
-    private LocalDate fechaEntrega;
+    private Date fechaEntrega;
 
-    public Tarea(int id, int asignatura, String tituloTarea, String descripcion, LocalDate fechaEntrega) {
+    public Tarea() {
+    }
+
+
+    public Tarea(int id, int asignatura, String tituloTarea, String descripcion, String fechaEntrega) {
         this.id = id;
         this.asignatura = asignatura;
         this.tituloTarea = tituloTarea;
         this.descripcion = descripcion;
-        this.fechaEntrega = fechaEntrega;
+        try {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+            this.fechaEntrega = dateFormat.parse(fechaEntrega);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
     protected Tarea(Parcel in) {
@@ -73,11 +85,11 @@ public class Tarea implements Parcelable {
         this.descripcion = descripcion;
     }
 
-    public LocalDate getFechaEntrega() {
+    public Date getFechaEntrega() {
         return fechaEntrega;
     }
 
-    public void setFechaEntrega(LocalDate fechaEntrega) {
+    public void setFechaEntrega(Date fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
     }
 

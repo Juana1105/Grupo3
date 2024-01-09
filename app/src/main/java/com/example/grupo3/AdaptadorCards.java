@@ -10,9 +10,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+
+import Tablas.Tarea;
 
 public class AdaptadorCards extends ArrayAdapter<Modulo> {
 

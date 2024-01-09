@@ -1,6 +1,7 @@
 package com.example.grupo3;
 
 public class Modulo {
+    private int id;
     private String nombre;
     private String ciclo;
     private int curso;
@@ -10,11 +11,20 @@ public class Modulo {
     public Modulo() {
     }
 
-    public Modulo(String nombre, String ciclo, int curso, int foto) {
+    public Modulo(int id,String nombre, String ciclo, int curso, int foto) {
+        this.id=id;
         this.nombre = nombre;
         this.ciclo = ciclo;
         this.curso = curso;
         this.foto = foto;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {

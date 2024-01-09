@@ -78,14 +78,14 @@ public class AsignaturasFragment extends Fragment {
 
 
         ArrayList<Modulo> listaModulos=new ArrayList<>();
-        listaModulos.add(new Modulo("Matematicas","ESO",2, R.drawable.math));
-        listaModulos.add(new Modulo("Ciencias","ESO",3, R.drawable.ciencia));
-        listaModulos.add(new Modulo("Tecnologia","DAM",1, R.drawable.tecnologia));
-        listaModulos.add(new Modulo("Economia","ESO",1, R.drawable.economy));
-        listaModulos.add(new Modulo("Inglés","DAM",2, R.drawable.english));
-        listaModulos.add(new Modulo("Frances","ESO",1, R.drawable.frances));
-        listaModulos.add(new Modulo("Historia","ESO",4, R.drawable.historia));
-        listaModulos.add(new Modulo("Lengua","ESO",1, R.drawable.lengua));
+        listaModulos.add(new Modulo(2,"Matematicas","ESO",2, R.drawable.math));
+        listaModulos.add(new Modulo(3,"Ciencias","ESO",3, R.drawable.ciencia));
+        listaModulos.add(new Modulo(1,"Tecnologia","DAM",1, R.drawable.tecnologia));
+        listaModulos.add(new Modulo(7,"Economia","ESO",1, R.drawable.economy));
+        listaModulos.add(new Modulo(6,"Inglés","DAM",2, R.drawable.english));
+        listaModulos.add(new Modulo(5,"Frances","ESO",1, R.drawable.frances));
+        listaModulos.add(new Modulo(4,"Historia","ESO",4, R.drawable.historia));
+        listaModulos.add(new Modulo(8,"Lengua","ESO",1, R.drawable.lengua));
 
         contenedorVista = view.findViewById(R.id.listaCards);
         AdaptadorCards miAdaptador = new AdaptadorCards(contenedorVista.getContext(),listaModulos);

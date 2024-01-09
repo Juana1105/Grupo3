@@ -7,6 +7,12 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.Date;
+
+import Tablas.Tarea;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,7 +64,25 @@ public class TareasFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tareas, container, false);
+        View view = inflater.inflate(R.layout.fragment_tareas, container, false);
+
+
+        ArrayList<Tarea> listaTareas=new ArrayList<>();
+        listaTareas.add(new Tarea(1, 2, "Actividades Tema 1", "Sumas y Restas", "2024/01/12"));
+        listaTareas.add(new Tarea(2,3,"Actividades Tema 5", "Origen Universo", "2024/02/10"));
+        listaTareas.add(new Tarea(3,2,"Actividades Tema 3","Reading 1", "2024/02/20"));
+        listaTareas.add(new Tarea(4,4,"Actividades Tema 2", "Charlie le chat", "2024/03/20"));
+        listaTareas.add(new Tarea(5,5,"Actividades Tema 6","Dios bb", "2024/01/15"));
+        listaTareas.add(new Tarea(6,3,"Actividades Tema 2", "El arte del gusano", "2024/01/22"));
+        listaTareas.add(new Tarea(7,4,"Actividades Tema 1", "Edad Media", "2024/01/24"));
+        listaTareas.add(new Tarea(8,7,"Actividades Tema 3", "Numeros binarios", "2024/01/25"));
+
+        ListView contenedorVista = view.findViewById(R.id.listaTareas);
+
+
+        AdaptadorTareas miAdaptador = new AdaptadorTareas(contenedorVista.getContext(),listaTareas);
+        contenedorVista.setAdapter(miAdaptador);
+
+        return view;
     }
 }
