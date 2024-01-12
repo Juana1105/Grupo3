@@ -44,7 +44,7 @@
                     android:layout_gravity="center"
                     >
                     <TextView
-                        android:id="@+id/asignaturaTareas"
+                        android:id="@+id/moduloTareas"
                         android:text="Asignatura"
                         android:textColor="@color/black"
                         android:layout_width="match_parent"

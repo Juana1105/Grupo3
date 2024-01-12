@@ -1,5 +1,6 @@
 package com.example.grupo3;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -68,20 +71,42 @@ public class TareasFragment extends Fragment {
 
 
         ArrayList<Tarea> listaTareas=new ArrayList<>();
-        listaTareas.add(new Tarea(1, 2, "Actividades Tema 1", "Sumas y Restas", "2024/01/12"));
-        listaTareas.add(new Tarea(2,3,"Actividades Tema 5", "Origen Universo", "2024/02/10"));
-        listaTareas.add(new Tarea(3,2,"Actividades Tema 3","Reading 1", "2024/02/20"));
-        listaTareas.add(new Tarea(4,4,"Actividades Tema 2", "Charlie le chat", "2024/03/20"));
-        listaTareas.add(new Tarea(5,5,"Actividades Tema 6","Dios bb", "2024/01/15"));
-        listaTareas.add(new Tarea(6,3,"Actividades Tema 2", "El arte del gusano", "2024/01/22"));
-        listaTareas.add(new Tarea(7,4,"Actividades Tema 1", "Edad Media", "2024/01/24"));
-        listaTareas.add(new Tarea(8,7,"Actividades Tema 3", "Numeros binarios", "2024/01/25"));
+        listaTareas.add(new Tarea("Programacion", "Actividades Tema 5"));
+        listaTareas.add(new Tarea("Programacion","Actividades Tema 5"));
+        listaTareas.add(new Tarea("Programacion","Actividades Tema 3"));
+        listaTareas.add(new Tarea("Programacion","Actividades Tema 2"));
+        listaTareas.add(new Tarea("Programacion","Actividades Tema 6"));
+        listaTareas.add(new Tarea("Programacion","Actividades Tema 2"));
+        listaTareas.add(new Tarea("Programacion","Actividades Tema 1"));
+        listaTareas.add(new Tarea("Programacion","Actividades Tema 3"));
+        /*
+        listaTareas.add(new Tarea("Programacion", "Actividades Tema 5", "2024/01/12"));
+        listaTareas.add(new Tarea("Programacion","Actividades Tema 5",  "2024/02/10"));
+        listaTareas.add(new Tarea("Programacion","Actividades Tema 3", "2024/02/20"));
+        listaTareas.add(new Tarea("Programacion","Actividades Tema 2", "2024/03/20"));
+        listaTareas.add(new Tarea("Programacion","Actividades Tema 6", "2024/01/15"));
+        listaTareas.add(new Tarea("Programacion","Actividades Tema 2",  "2024/01/22"));
+        listaTareas.add(new Tarea("Programacion","Actividades Tema 1", "2024/01/24"));
+        listaTareas.add(new Tarea("Programacion","Actividades Tema 3", "2024/01/25"));
+*/
 
         ListView contenedorVista = view.findViewById(R.id.listaTareas);
 
 
         AdaptadorTareas miAdaptador = new AdaptadorTareas(contenedorVista.getContext(),listaTareas);
         contenedorVista.setAdapter(miAdaptador);
+
+
+
+
+        FloatingActionButton botonNuevaTarea=(FloatingActionButton) view.findViewById(R.id.floatingABtareas);
+        botonNuevaTarea.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pantallaNuevaTarea=new Intent(getContext(), ActivityNuevaTarea.class);
+                startActivity(pantallaNuevaTarea);
+            }
+        });
 
         return view;
     }

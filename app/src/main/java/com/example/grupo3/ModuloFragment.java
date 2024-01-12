@@ -1,13 +1,17 @@
 package com.example.grupo3;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -15,10 +19,10 @@ import Tablas.Modulo;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link AsignaturasFragment#newInstance} factory method to
+ * Use the {@link ModuloFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AsignaturasFragment extends Fragment {
+public class ModuloFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,7 +35,7 @@ public class AsignaturasFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public AsignaturasFragment() {
+    public ModuloFragment() {
         // Required empty public constructor
     }
 
@@ -44,8 +48,8 @@ public class AsignaturasFragment extends Fragment {
      * @return A new instance of fragment AsignaturasFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static AsignaturasFragment newInstance(String param1, String param2) {
-        AsignaturasFragment fragment = new AsignaturasFragment();
+    public static ModuloFragment newInstance(String param1, String param2) {
+        ModuloFragment fragment = new ModuloFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -72,23 +76,18 @@ public class AsignaturasFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_asignaturas, container, false);
        // View cardsView = inflater.inflate(R.layout.cards, container, false);
         //Quitamos de momento que sea clicable porque falla y falta pensar la parte visual
-
-
         ArrayList<Modulo> listaModulos=new ArrayList<>();
-        listaModulos.add(new Modulo(2,"Matematicas","ESO",2, R.drawable.math));
-        listaModulos.add(new Modulo(3,"Ciencias","ESO",3, R.drawable.ciencia));
-        listaModulos.add(new Modulo(1,"Tecnologia","DAM",1, R.drawable.tecnologia));
-        listaModulos.add(new Modulo(7,"Economia","ESO",1, R.drawable.economy));
-        listaModulos.add(new Modulo(6,"Inglés","DAM",2, R.drawable.english));
-        listaModulos.add(new Modulo(5,"Frances","ESO",1, R.drawable.frances));
-        listaModulos.add(new Modulo(4,"Historia","ESO",4, R.drawable.historia));
-        listaModulos.add(new Modulo(8,"Lengua","ESO",1, R.drawable.lengua));
+        listaModulos.add(new Modulo("Programacion","DAM","Jose"));
+        listaModulos.add(new Modulo("Acceso datos","DAW", "Jose"));
+        listaModulos.add(new Modulo("PSP","DAM", "Jose"));
+        listaModulos.add(new Modulo("Bases de datos","DAW", "Jose"));
+        listaModulos.add(new Modulo("Desarrollo interfaces","DAM", "Jose"));
+        listaModulos.add(new Modulo("Ingles","DAW", "Jose"));
+        listaModulos.add(new Modulo("Sistemas gestion","DAM", "Jose"));
 
         contenedorVista = view.findViewById(R.id.listaCards);
         AdaptadorCards miAdaptador = new AdaptadorCards(contenedorVista.getContext(),listaModulos);
         contenedorVista.setAdapter(miAdaptador);
-
-
 
         //ID de la CardView dentro de cardsView (cards.xml)
        /* CardView contenedorCard=cardsView.findViewById(R.id.contenedorCard);
@@ -103,6 +102,20 @@ public class AsignaturasFragment extends Fragment {
         // Agrega cardsView al contenedor de fragment_asignaturas.xml
        ViewGroup mainLayout = view.findViewById(R.id.layoutAsignaturas);
         mainLayout.addView(cardsView);*/
+
+
+
+        FloatingActionButton botonNuevoModulo=(FloatingActionButton) view.findViewById(R.id.floatingABmodulo);
+        botonNuevoModulo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pantallaNuevoModulo=new Intent(getContext(), ActivityNuevoModulo.class);
+                startActivity(pantallaNuevoModulo);
+            }
+        });
+
+
+
 
         return view;
     }

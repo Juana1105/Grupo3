@@ -20,7 +20,7 @@ public class AdaptadorTareas extends ArrayAdapter<Tarea> {
     private ArrayList<Tarea> lista;
 
     public AdaptadorTareas(Context contexto, ArrayList<Tarea> lista) {
-        super(contexto, R.layout.fragment_tareas, lista);
+        super(contexto, R.layout.tareas, lista);
         this.lista=lista;
     }
 
@@ -34,15 +34,15 @@ public class AdaptadorTareas extends ArrayAdapter<Tarea> {
 
 
 
-        TextView nombreAsignatura = (TextView) elemento.findViewById(R.id.asignaturaTareas);
+        TextView nombreModulo = (TextView) elemento.findViewById(R.id.moduloTareas);
         TextView nombreTarea = (TextView) elemento.findViewById(R.id.nombreTarea);
         TextView fecha = (TextView) elemento.findViewById(R.id.fechaEntregaTarea);
 
         //asociamos elementos
 
-        nombreAsignatura.setText(String.valueOf(lista.get(position).getAsignatura()));
-        nombreTarea.setText(lista.get(position).getTituloTarea());
-        fecha.setText(String.valueOf(lista.get(position).getFechaEntrega()));
+        nombreModulo.setText(String.valueOf(lista.get(position).getModulo()));
+        nombreTarea.setText(lista.get(position).getTarea());
+        //fecha.setText(String.valueOf(lista.get(position).getFechaEntrega()));
 
 
         return elemento;

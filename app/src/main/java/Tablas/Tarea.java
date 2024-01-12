@@ -19,11 +19,20 @@ public class Tarea {
     public Tarea() {
     }
 
+    public Tarea(String modulo, String tarea, LocalDate fechaEntrega) {
+        this.modulo = modulo;
+        this.tarea = tarea;
+        this.fechaEntrega = fechaEntrega;
+    }
+
     public Tarea(int id, String modulo, String tarea, LocalDate fechaEntrega) {
         this.id = id;
         this.modulo = modulo;
         this.tarea = tarea;
         this.fechaEntrega = fechaEntrega;
+    }
+
+    public Tarea(String programacion, String tarea) {
     }
 
     public int getId() {

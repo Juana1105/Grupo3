@@ -9,9 +9,11 @@ import androidx.navigation.Navigation;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class MenuPrincipal extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener, Toolbar.OnMenuItemClickListener {
@@ -31,6 +33,11 @@ public class MenuPrincipal extends AppCompatActivity implements NavigationBarVie
 
         encabezado.setOnMenuItemClickListener(this);
         bottomNavigation.setOnItemSelectedListener(this);
+
+
+
+
+
     }
 
     @Override

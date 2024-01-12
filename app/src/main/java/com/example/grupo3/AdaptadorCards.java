@@ -32,21 +32,11 @@ public class AdaptadorCards extends ArrayAdapter<Modulo> {
         LayoutInflater mostrado= LayoutInflater.from(getContext());
         View elemento= mostrado.inflate(R.layout.cards, parent, false);
 
-
-        ImageView imagenModulo =(ImageView) elemento.findViewById(R.id.imagenModulo);
         TextView nombreModulo= (TextView) elemento.findViewById(R.id.nombreModulo);
         TextView cicloModulo= (TextView) elemento.findViewById(R.id.ciclo);
-        TextView cursoModulo= (TextView) elemento.findViewById(R.id.curso);
 
-        //asociamos elementos
-
-
-        imagenModulo.setImageResource(lista.get(position).getFoto());
-        nombreModulo.setText(lista.get(position).getNombre());
+        nombreModulo.setText(lista.get(position).getModulo());
         cicloModulo.setText(lista.get(position).getCiclo());
-        cursoModulo.setText(String.valueOf(lista.get(position).getCurso()));
-
-
 
         return elemento;
     }
