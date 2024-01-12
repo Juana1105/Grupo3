@@ -65,8 +65,8 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
                 Toast.makeText(SignIn.this, R.string.errorTextosVacíos, Toast.LENGTH_SHORT).show();
 
             //Sino si el correo es igual al del usuario de prueba se avisará al usuario de que el mismo ya está en uso.
-            } else if (usuarioPrueba.getCorreo().equals(correo)) {
-                Toast.makeText(SignIn.this, R.string.errorCorreoYaExistente, Toast.LENGTH_SHORT).show();
+            } else if (usuarioPrueba.getNombre().equals(nombre)) {
+                Toast.makeText(SignIn.this, R.string.errorNombreYaExistente, Toast.LENGTH_SHORT).show();
 
             /*Sino si la contraseña y su confirmación son iguales se le llevará a la actividad MenuPrincipal junto con
             el Bundle con el Usuario el cuál se crea con los datos insertados por el usuario.*/

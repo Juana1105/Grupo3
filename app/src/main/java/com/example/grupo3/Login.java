@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
 
 import Tablas.Usuario;
@@ -17,7 +16,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     //Atributos.
     private Usuario usuarioPrueba;
     private Bundle usuario;
-    private EditText textoCorreo;
+    private EditText textoNombre;
     private EditText textoContrasena;
 
 
@@ -34,7 +33,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         usuario.putParcelable("usuario", usuarioPrueba);
 
         //Aquí se enlazan los elementos con sus respectivos en el xml.
-        textoCorreo = findViewById(R.id.editTextCorreoLogin);
+        textoNombre = findViewById(R.id.editTextNombreLogin);
         textoContrasena = findViewById(R.id.editTextContrasenaLogin);
         MaterialButton botonIniciarSesion = findViewById(R.id.botonIniciarSesionLogin);
         MaterialButton botonRegistrarse = findViewById(R.id.botonRegistrarseLogin);
@@ -54,7 +53,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         //Si el botón pulsado en el de iniciar sesión realizará las siguientes acciones.
         if (v.getId() == R.id.botonIniciarSesionLogin) {
             //Se obtienen el correo y la contraseña escritos por el usuario para realizar las siguientes acciones.
-            String correo = textoCorreo.getText().toString();
+            String correo = textoNombre.getText().toString();
             String contrasena = textoContrasena.getText().toString();
 
             /*Si alguno de los campos está vacío aparecerá un mensaje avisando al usuario de que todos los campos

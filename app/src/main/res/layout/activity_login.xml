@@ -33,19 +33,19 @@
         android:textColor="@color/black"/>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputCorreoLogin"
+        android:id="@+id/textInputNombreLogin"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="20dp"
-        android:hint="@string/textoCorreo"
-        app:startIconDrawable="@drawable/mail"
+        android:hint="@string/textoNombre"
+        app:startIconDrawable="@drawable/user"
         app:endIconMode="clear_text">
 
         <EditText
-            android:id="@+id/editTextCorreoLogin"
+            android:id="@+id/editTextNombreLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

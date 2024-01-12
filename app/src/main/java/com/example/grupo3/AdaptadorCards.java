@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
-import Tablas.Tarea;
+import Tablas.Modulo;
 
 public class AdaptadorCards extends ArrayAdapter<Modulo> {
 
