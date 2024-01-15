@@ -40,19 +40,19 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/TIcurso"
+            android:id="@+id/TIciclo"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="20dp"
-            android:hint="Curso"
+            android:hint="Ciclo"
             app:startIconDrawable="@drawable/info"
             app:endIconMode="clear_text">
 
             <EditText
-                android:id="@+id/curso"
+                android:id="@+id/ciclo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
