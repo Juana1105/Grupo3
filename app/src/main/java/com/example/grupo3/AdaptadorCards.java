@@ -38,6 +38,7 @@ public class AdaptadorCards extends ArrayAdapter<Modulo> {
         nombreModulo.setText(lista.get(position).getModulo());
         cicloModulo.setText(lista.get(position).getCiclo());
 
+
         return elemento;
     }
 }

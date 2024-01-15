@@ -31,7 +31,7 @@ public class ActivityNuevoModulo extends AppCompatActivity {
 
                 builder.setTitle("Mensaje Informativo");
                 builder.setMessage("Estás a punto de guardar un nuevo módulo, si estás seguro haz clic en 'aceptar'");
-                builder.setIcon(android.R.drawable.btn_star_big_on);
+                builder.setIcon(android.R.drawable.ic_dialog_info);
 
                 builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
 

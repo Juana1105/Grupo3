@@ -12,6 +12,8 @@ import android.widget.ListView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -28,11 +30,11 @@ public class TareasFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
+    Date utilDate;
     public TareasFragment() {
         // Required empty public constructor
     }
@@ -67,10 +69,21 @@ public class TareasFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
         View view = inflater.inflate(R.layout.fragment_tareas, container, false);
 
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+        String fechita = "11-10-2022";
+
+        try {
+            utilDate = formato.parse(fechita);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
 
         ArrayList<Tarea> listaTareas=new ArrayList<>();
+/*
         listaTareas.add(new Tarea("Programacion", "Actividades Tema 5"));
         listaTareas.add(new Tarea("Programacion","Actividades Tema 5"));
         listaTareas.add(new Tarea("Programacion","Actividades Tema 3"));
@@ -79,31 +92,32 @@ public class TareasFragment extends Fragment {
         listaTareas.add(new Tarea("Programacion","Actividades Tema 2"));
         listaTareas.add(new Tarea("Programacion","Actividades Tema 1"));
         listaTareas.add(new Tarea("Programacion","Actividades Tema 3"));
-        /*
-        listaTareas.add(new Tarea("Programacion", "Actividades Tema 5", "2024/01/12"));
-        listaTareas.add(new Tarea("Programacion","Actividades Tema 5",  "2024/02/10"));
-        listaTareas.add(new Tarea("Programacion","Actividades Tema 3", "2024/02/20"));
-        listaTareas.add(new Tarea("Programacion","Actividades Tema 2", "2024/03/20"));
-        listaTareas.add(new Tarea("Programacion","Actividades Tema 6", "2024/01/15"));
-        listaTareas.add(new Tarea("Programacion","Actividades Tema 2",  "2024/01/22"));
-        listaTareas.add(new Tarea("Programacion","Actividades Tema 1", "2024/01/24"));
-        listaTareas.add(new Tarea("Programacion","Actividades Tema 3", "2024/01/25"));
 */
+
+
+        listaTareas.add(new Tarea("Programacion", "Actividades Tema 5", utilDate));
+        listaTareas.add(new Tarea("Programacion", "Actividades Tema 5", utilDate));
+        listaTareas.add(new Tarea("Programacion", "Actividades Tema 3", utilDate));
+        listaTareas.add(new Tarea("Programacion", "Actividades Tema 2", utilDate));
+        listaTareas.add(new Tarea("Programacion", "Actividades Tema 6", utilDate));
+        listaTareas.add(new Tarea("Programacion", "Actividades Tema 2", utilDate));
+        listaTareas.add(new Tarea("Programacion", "Actividades Tema 1", utilDate));
+        listaTareas.add(new Tarea("Programacion", "Actividades Tema 3", utilDate));
+
 
         ListView contenedorVista = view.findViewById(R.id.listaTareas);
 
-
-        AdaptadorTareas miAdaptador = new AdaptadorTareas(contenedorVista.getContext(),listaTareas);
+        AdaptadorTareas miAdaptador = new AdaptadorTareas(contenedorVista.getContext(), listaTareas);
         contenedorVista.setAdapter(miAdaptador);
 
 
 
 
-        FloatingActionButton botonNuevaTarea=(FloatingActionButton) view.findViewById(R.id.floatingABtareas);
+        FloatingActionButton botonNuevaTarea = (FloatingActionButton) view.findViewById(R.id.floatingABtareas);
         botonNuevaTarea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent pantallaNuevaTarea=new Intent(getContext(), ActivityNuevaTarea.class);
+                Intent pantallaNuevaTarea = new Intent(getContext(), ActivityNuevaTarea.class);
                 startActivity(pantallaNuevaTarea);
             }
         });

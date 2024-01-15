@@ -14,18 +14,18 @@ public class Tarea {
     private int id;
     private String modulo;
     private String tarea;
-    private LocalDate fechaEntrega;
+    private Date fechaEntrega;
 
     public Tarea() {
     }
 
-    public Tarea(String modulo, String tarea, LocalDate fechaEntrega) {
+    public Tarea(String modulo, String tarea, Date fechaEntrega) {
         this.modulo = modulo;
         this.tarea = tarea;
         this.fechaEntrega = fechaEntrega;
     }
 
-    public Tarea(int id, String modulo, String tarea, LocalDate fechaEntrega) {
+    public Tarea(int id, String modulo, String tarea, Date fechaEntrega) {
         this.id = id;
         this.modulo = modulo;
         this.tarea = tarea;
@@ -59,11 +59,11 @@ public class Tarea {
         this.tarea = tarea;
     }
 
-    public LocalDate getFechaEntrega() {
+    public Date getFechaEntrega() {
         return fechaEntrega;
     }
 
-    public void setFechaEntrega(LocalDate fechaEntrega) {
+    public void setFechaEntrega(Date fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
     }
 }
