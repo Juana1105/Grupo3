@@ -1,6 +1,8 @@
 package Tablas;
 
 public class Modulo {
+
+
     private String modulo;
     private String ciclo;
     private String usuario;
@@ -8,6 +10,7 @@ public class Modulo {
 
     public Modulo() {
     }
+
 
     public Modulo(String modulo, String ciclo, String usuario) {
         this.modulo = modulo;
@@ -18,6 +21,8 @@ public class Modulo {
     public String getModulo() {
         return modulo;
     }
+
+
 
     public void setModulo(String modulo) {
         this.modulo = modulo;

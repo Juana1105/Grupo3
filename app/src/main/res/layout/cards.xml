@@ -45,18 +45,17 @@
                     android:src="@drawable/account_circle"
                     android:scaleType="fitCenter">
                 </ImageView>
-                <!--Añado el elemento Floating Action Button y configuro dandole atributos-->
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/floatingAB"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|end"
-                    app:fabSize="mini"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="25dp"
-                    android:layout_marginBottom="10dp"
-                    android:backgroundTint="#7F68E6"
-                    android:src="@drawable/delete" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/botonEliminarModulo"
+                    android:layout_width="40dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    app:iconGravity="top"
+                    app:icon="@drawable/delete"
+                    android:backgroundTint="@color/cardview_dark_background"
+
+                    />
 
             </LinearLayout>
 

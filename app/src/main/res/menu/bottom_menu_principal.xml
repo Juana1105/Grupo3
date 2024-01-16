@@ -13,9 +13,5 @@
         android:icon="@drawable/article"
         app:showAsAction="always"/>
 
-    <item
-        android:id="@+id/itemMensajes"
-        android:title="@string/textoMensajes"
-        android:icon="@drawable/forum"
-        app:showAsAction="always"/>
+
 </menu>

@@ -89,7 +89,16 @@
                             android:layout_marginBottom="15dp">
                         </TextView>
 
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/botonEliminarTarea"
+                        android:layout_width="40dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        app:icon="@drawable/delete"
+                        app:iconGravity="top"
+                        android:backgroundTint="@color/cardview_dark_background"
 
+                        />
 
                 </LinearLayout>
 

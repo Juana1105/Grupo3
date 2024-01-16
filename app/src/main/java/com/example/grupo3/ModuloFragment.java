@@ -1,17 +1,23 @@
 package com.example.grupo3;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
@@ -28,7 +34,7 @@ public class ModuloFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    //instanciamos el contenedor
+
     private ListView contenedorVista;
 
     // TODO: Rename and change types of parameters
@@ -56,7 +62,6 @@ public class ModuloFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,19 +69,15 @@ public class ModuloFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        //Inflamos los dos layouts
         View view = inflater.inflate(R.layout.fragment_asignaturas, container, false);
-       // View cardsView = inflater.inflate(R.layout.cards, container, false);
-        //Quitamos de momento que sea clicable porque falla y falta pensar la parte visual
+
         ArrayList<Modulo> listaModulos=new ArrayList<>();
+
         listaModulos.add(new Modulo("Programacion","DAM","Jose"));
         listaModulos.add(new Modulo("Acceso datos","DAW", "Jose"));
         listaModulos.add(new Modulo("PSP","DAM", "Jose"));
@@ -86,22 +87,54 @@ public class ModuloFragment extends Fragment {
         listaModulos.add(new Modulo("Sistemas gestion","DAM", "Jose"));
 
         contenedorVista = view.findViewById(R.id.listaCards);
+        contenedorVista.setChoiceMode(ListView.CHOICE_MODE_SINGLE);//para que puedan seleccionarse de forma individual
         AdaptadorCards miAdaptador = new AdaptadorCards(contenedorVista.getContext(),listaModulos);
         contenedorVista.setAdapter(miAdaptador);
-
-        //ID de la CardView dentro de cardsView (cards.xml)
-       /* CardView contenedorCard=cardsView.findViewById(R.id.contenedorCard);
-        contenedorCard.setOnClickListener(new View.OnClickListener() {
+        // Configurar el listener para eliminar la tarjeta al hacer clic en el botón
+        miAdaptador.setOnItemClickListener(new AdaptadorCards.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent pantallaModuloActivity= new Intent(view.getContext(), ModuloActivity.class);
-                startActivity(pantallaModuloActivity);
+            public void onDeleteButtonClick(int position) {
+                AlertDialog.Builder builder=new AlertDialog.Builder(view.getContext());
+
+                builder.setTitle("Mensaje Informativo");
+                builder.setMessage("Vas a eliminar un módulo, si estás seguro haz clic en 'ELIMINAR'");
+                builder.setIcon(android.R.drawable.ic_dialog_info);
+
+                builder.setPositiveButton("ELIMINAR", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        // Utiliza tu lista (listaModulos) y el método remove() para eliminar el elemento
+                        listaModulos.remove(position);
+                        miAdaptador.notifyDataSetChanged();
+                    }
+                });
+                builder.setNegativeButton("NO ELIMINAR", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        View padre=(View) view.getParent();
+                        Snackbar barra= Snackbar.make(padre,"Has seleccionado no eliminar el módulo",Snackbar.LENGTH_SHORT);
+                        barra.show();
+                    }
+                });
+
+                builder.setNeutralButton("CANCELAR", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        View padre=(View) view.getParent();
+                        Snackbar barra= Snackbar.make(padre,"Has cancelado el proceso",Snackbar.LENGTH_SHORT);
+                        barra.show();
+                    }
+                });
+                AlertDialog cuadroDialogo = builder.create();
+                cuadroDialogo.show();
+
             }
         });
 
-        // Agrega cardsView al contenedor de fragment_asignaturas.xml
-       ViewGroup mainLayout = view.findViewById(R.id.layoutAsignaturas);
-        mainLayout.addView(cardsView);*/
+
+
 
 
 
@@ -113,9 +146,6 @@ public class ModuloFragment extends Fragment {
                 startActivity(pantallaNuevoModulo);
             }
         });
-
-
-
 
         return view;
     }

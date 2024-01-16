@@ -1,5 +1,7 @@
 package com.example.grupo3;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -11,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -33,6 +36,7 @@ public class TareasFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private ListView contenedorVista;
 
     Date utilDate;
     public TareasFragment() {
@@ -73,42 +77,66 @@ public class TareasFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_tareas, container, false);
 
-        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
-        String fechita = "11-10-2022";
 
-        try {
-            utilDate = formato.parse(fechita);
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
 
         ArrayList<Tarea> listaTareas=new ArrayList<>();
-/*
-        listaTareas.add(new Tarea("Programacion", "Actividades Tema 5"));
-        listaTareas.add(new Tarea("Programacion","Actividades Tema 5"));
-        listaTareas.add(new Tarea("Programacion","Actividades Tema 3"));
-        listaTareas.add(new Tarea("Programacion","Actividades Tema 2"));
-        listaTareas.add(new Tarea("Programacion","Actividades Tema 6"));
-        listaTareas.add(new Tarea("Programacion","Actividades Tema 2"));
-        listaTareas.add(new Tarea("Programacion","Actividades Tema 1"));
-        listaTareas.add(new Tarea("Programacion","Actividades Tema 3"));
-*/
-
-
-        listaTareas.add(new Tarea("Programacion", "Actividades Tema 5", utilDate));
-        listaTareas.add(new Tarea("Programacion", "Actividades Tema 5", utilDate));
-        listaTareas.add(new Tarea("Programacion", "Actividades Tema 3", utilDate));
-        listaTareas.add(new Tarea("Programacion", "Actividades Tema 2", utilDate));
-        listaTareas.add(new Tarea("Programacion", "Actividades Tema 6", utilDate));
-        listaTareas.add(new Tarea("Programacion", "Actividades Tema 2", utilDate));
-        listaTareas.add(new Tarea("Programacion", "Actividades Tema 1", utilDate));
-        listaTareas.add(new Tarea("Programacion", "Actividades Tema 3", utilDate));
-
-
-        ListView contenedorVista = view.findViewById(R.id.listaTareas);
-
+/*RELLENAR ARRAY*/
+/*PROBAR*/
+        contenedorVista = view.findViewById(R.id.listaTareas);
+        contenedorVista.setChoiceMode(ListView.CHOICE_MODE_SINGLE);//para que puedan seleccionarse de forma individual
         AdaptadorTareas miAdaptador = new AdaptadorTareas(contenedorVista.getContext(), listaTareas);
         contenedorVista.setAdapter(miAdaptador);
+
+
+
+
+        miAdaptador.setOnItemClickListener(new AdaptadorCards.OnItemClickListener() {
+            @Override
+            public void onDeleteButtonClick(int position) {
+                AlertDialog.Builder builder=new AlertDialog.Builder(view.getContext());
+
+                builder.setTitle("Mensaje Informativo");
+                builder.setMessage("Vas a eliminar una tarea, si estás seguro haz clic en 'ELIMINAR'");
+                builder.setIcon(android.R.drawable.ic_dialog_info);
+
+                builder.setPositiveButton("ELIMINAR", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        // Utiliza tu lista (listaModulos) y el método remove() para eliminar el elemento
+                        listaTareas.remove(position);
+                        miAdaptador.notifyDataSetChanged();
+                    }
+                });
+                builder.setNegativeButton("NO ELIMINAR", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        View padre=(View) view.getParent();
+                        Snackbar barra= Snackbar.make(padre,"Has seleccionado no eliminar la tarea",Snackbar.LENGTH_SHORT);
+                        barra.show();
+                    }
+                });
+
+                builder.setNeutralButton("CANCELAR", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        View padre=(View) view.getParent();
+                        Snackbar barra= Snackbar.make(padre,"Has cancelado el proceso",Snackbar.LENGTH_SHORT);
+                        barra.show();
+                    }
+                });
+                AlertDialog cuadroDialogo = builder.create();
+                cuadroDialogo.show();
+
+            }
+        });
+
+
+
+
+
+
 
 
 

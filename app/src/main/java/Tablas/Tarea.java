@@ -5,27 +5,25 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
+
 
 public class Tarea {
     private int id;
     private String modulo;
     private String tarea;
-    private Date fechaEntrega;
+    private LocalDate fechaEntrega;
 
     public Tarea() {
     }
 
-    public Tarea(String modulo, String tarea, Date fechaEntrega) {
+    public Tarea(String modulo, String tarea, LocalDate fechaEntrega) {
         this.modulo = modulo;
         this.tarea = tarea;
         this.fechaEntrega = fechaEntrega;
     }
 
-    public Tarea(int id, String modulo, String tarea, Date fechaEntrega) {
+    public Tarea(int id, String modulo, String tarea, LocalDate fechaEntrega) {
         this.id = id;
         this.modulo = modulo;
         this.tarea = tarea;
@@ -59,11 +57,11 @@ public class Tarea {
         this.tarea = tarea;
     }
 
-    public Date getFechaEntrega() {
+    public LocalDate getFechaEntrega() {
         return fechaEntrega;
     }
 
-    public void setFechaEntrega(Date fechaEntrega) {
+    public void setFechaEntrega(LocalDate fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
     }
 }

@@ -15,9 +15,6 @@
         android:name="com.example.grupo3.TareasFragment"
         tools:layout="@layout/fragment_tareas"/>
 
-    <fragment
-        android:id="@+id/fragmentMensajes"
-        android:name="com.example.grupo3.MensajesFragment"
-        tools:layout="@layout/fragment_mensajes"/>
+
 
 </navigation>

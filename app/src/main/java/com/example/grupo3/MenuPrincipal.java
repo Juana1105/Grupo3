@@ -70,9 +70,6 @@ public class MenuPrincipal extends AppCompatActivity implements NavigationBarVie
         } else if (item.getItemId() == R.id.itemTareas) {
             realizado = true;
             navController.navigate(R.id.fragmentTareas, usuario);
-        } else if (item.getItemId() == R.id.itemMensajes) {
-            realizado = true;
-            navController.navigate(R.id.fragmentMensajes, usuario);
         }
         return realizado;
     }

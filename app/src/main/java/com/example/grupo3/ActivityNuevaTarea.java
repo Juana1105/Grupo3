@@ -1,12 +1,15 @@
 package com.example.grupo3;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -16,14 +19,20 @@ import android.widget.RelativeLayout;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
+import java.util.Date;
 
 import Tablas.Modulo;
 import Tablas.Tarea;
 
 public class ActivityNuevaTarea extends AppCompatActivity {
 
+    Date utilDate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,11 +56,16 @@ public class ActivityNuevaTarea extends AppCompatActivity {
                 int month=calendario.get(Calendar.MONTH);
                 int day=calendario.get(Calendar.DAY_OF_MONTH);
                 DatePickerDialog selectorFecha = new DatePickerDialog(ActivityNuevaTarea.this, new DatePickerDialog.OnDateSetListener() {
+                    @RequiresApi(api = Build.VERSION_CODES.O)
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
-                        String fechaElegidaCadena=dayOfMonth+"/"+month+"/"+year;
-                        fechaSeleccionada.setText(fechaElegidaCadena);
-                        Snackbar barra=Snackbar.make(linearPadre,fechaElegidaCadena,Snackbar.LENGTH_SHORT);
+                        month++;
+                        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                        Log.i("fecha",dayOfMonth+" "+month+" "+ year);
+                        LocalDate fecha = LocalDate.of(year, month, dayOfMonth);
+
+                        fechaSeleccionada.setText(fecha.format(formato));
+                        Snackbar barra=Snackbar.make(linearPadre,fecha.format(formato),Snackbar.LENGTH_SHORT);
                         barra.show();
                     }
                 },year,month,day);
